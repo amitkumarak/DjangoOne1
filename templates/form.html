@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block styleblock %}
+    <style>
+        form {
+            padding-right: 5%;
+            padding-bottom: 5%;
+
+        }
+
+
+
+    </style>
+{% endblock %}
+
+{% block contentblock %}
+    <div class="container-fluid form ">
+
+        <div class='col-sm-8 col-sm-offset-0'>
+            <div class="item">
+                <img src="{% static 'assets/images/login3.jpg' %}" alt="">
+                <div class="carousel-caption">
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class='col-sm-4 col-sm-offset-8'>
+                <div class="panel panel-primary">
+
+                    <div class="panel-heading" style="color: #2d3032">
+                        <h1>{{ title }}</h1>
+                    </div>
+
+
+                    <form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
+                        {{ form|crispy }}
+                        <input type='submit' class='btn btn-default' value='{{ title }}'/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

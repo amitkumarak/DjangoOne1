@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block contentblock %}
+    {% block styleblock %}
+        <style>
+            .slider-holder {
+                width: 1350px;
+                height: 400px;
+
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 0px;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .image-holder {
+                width: 2400px;
+
+                height: 400px;
+                clear: both;
+                position: relative;
+
+                -webkit-transition: left 2s;
+                -moz-transition: left 2s;
+                -o-transition: left 2s;
+                transition: left 2s;
+            }
+
+            .slider-image {
+                float: left;
+                margin: 0px;
+                padding: 0px;
+                position: relative;
+            }
+
+            #slider-image-1:target ~ .image-holder {
+                left: -1100px;
+            }
+
+            #slider-image-2:target ~ .image-holder {
+                left: -1100px;
+            }
+
+            #slider-image-3:target ~ .image-holder {
+                left: -1100px;
+            }
+
+            .button-holder {
+                position: center;
+                top: -1000px;
+            }
+
+            .slider-change {
+                display: inline-block;
+                height: 5px;
+                width: 5px;
+                border-radius: 5px;
+                background-color: red;
+            }
+        </style>
+    {% endblock %}
+    <div class="slider-holder">
+        <span id="slider-image-1"></span>
+        <span id="slider-image-2"></span>
+        <span id="slider-image-3"></span>
+        <div class="image-holder">
+            <img src="{% static 'assets/images/lib.jpg' %}" class="slider-image"/>
+            <img src="{% static 'assets/images/lib2.jpg' %}" class="slider-image"/>
+            <img src="{% static 'assets/images/lib3.jpg' %}" class="slider-image"/>
+        </div>
+        <div class="button-holder">
+            <a href="#slider-image-1" class="slider-change"></a>
+            <a href="#slider-image-2" class="slider-change"></a>
+            <a href="#slider-image-3" class="slider-change"></a>
+        </div>
+    </div>
+    <!-- END REVOLUTION SLIDER -->
+    <div class="container marg100 ab ">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="container ab"><img src="{% static 'assets/images/piii.jpg' %}" alt=""></div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 marg50 hidden-xs col-ms-12_marg50">
+                <div class="present-block-one">Try Something New For You</div>
+                <div class="present-block-name">Create Own project</div>
+                <div class="present-block-line"></div>
+                <div class="present-block-text">Python is an interpreted, object-oriented, high-level programming
+                    language with dynamic semantics. Its high-level built in data structures, combined with dynamic
+                    typing and dynamic binding, make it very attractive for Rapid Application Development, as well as
+                    for use as a scripting or glue language to connect existing components together. Python's simple,
+                    easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance.
+                    Python supports modules and packages, which encourages program modularity and code reuse. The Python
+                    interpreter and the extensive standard library are available in source or binary form without charge
+                    for all major platforms, and can be freely distributed.
+                </div>
+                <div class="present-block-button"><a href="#">Python</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-color-two">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="promo-text">we provide only quality</div>
+                    <div class="promo-name">Our Primary Services</div>
+                    <div class="promo-border"></div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-ms-12">
+                    <div class="services-main-multi">
+                        <div class="multi-serv">
+                            <div class="multi-serv-icon"><i class="icon-basic-paperplane"></i></div>
+                            <div class="multi-serv-block-list"><h2 class="multi-serv-name">High Speed Load</h2>
+                                <p class="multi-serv-desc">Purse tried jokes china ready decay an. Small its shy way had
+                                    woody downs old. To denoting admitted.</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-ms-12 marg-xs-50px">
+                    <div class="services-main-multi">
+                        <div class="multi-serv">
+                            <div class="multi-serv-icon"><i class="icon-basic-clubs"></i></div>
+                            <div class="multi-serv-block-list"><h2 class="multi-serv-name">Fully Responsive</h2>
+                                <p class="multi-serv-desc">Purse tried jokes china ready decay an. Small its shy way had
+                                    woody downs old. To denoting admitted.</p></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="container-color">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="jcarousel-wrapper">
+                                <div class="jcarousel">
+                                    <ul>
+                                        <li><a href="#"><img src="{% static 'assets/images/P.png' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'assets/images/Y.png' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'assets/images/T.jpg' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'assets/images/H.jpg' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'assets/images/O.jpg' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'assets/images/N.png' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'assets/images/P.png' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'assets/images/Y.png' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'assets/images/T.jpg' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'assets/images/H.jpg' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'assets/images/O.jpg' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'assets/images/N.png' %}" alt=""></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container marg100">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="promo-text">latest insteresting posts</div>
+                        <div class="promo-name">Recent Posts From Blog</div>
+                        <div class="promo-border marg50"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-ms-12_marg col-ms-12">
+                        <div class="blog-main ver2">
+                            <div class="blog-images">
+                                <div class="post-thumbnail">
+                                    <div class="single-item"></div>
+
+                                    <img src="{% static 'assets/images/as21.jpg' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="blog-name"><a href="#">About Asp.net</a></div>
+                            <div class="blog-text"><p>ASP.NET is a web development platform, which provides a
+                                programming model, a comprehensive software infrastructure and various services required
+                                to build up robust web applications for PC, as well as mobile devices.
+
+                                ASP.NET works on top of the HTTP protocol, and uses the HTTP commands and policies to
+                                set a browser-to-server bilateral communication and cooperation.</p></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-ms-12_marg col-ms-12">
+                        <div class="blog-main ver2">
+                            <div class="blog-images">
+                                <div class="post-thumbnail">
+                                    <div class="single-item"></div>
+                                    <img src="{% static 'assets/images/j11.jpg' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="blog-name"><a href="#">About Java </a>
+                            </div>
+                            <div class="blog-text"><p>Java language" redirects here. For the natural language from the
+                                Indonesian island of Java, see Javanese language.
+                                This article is about a programming language. For the software package downloaded from
+                                java.com, see Java SE.
+                                Not to be confused with JavaScript.</p></div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-ms-12_marg col-ms-12">
+                        <div class="blog-main ver2">
+                            <div class="blog-images">
+                                <div class="post-thumbnail">
+                                    <div class="single-item"></div>
+
+                                    <img src="{% static 'assets/images/c21.jpg' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="blog-name"><a href="#">About C++</a>
+                            </div>
+                            <div class="blog-text"><p>C++ is a middle-level programming language developed by Bjarne
+                                Stroustrup starting in 1979 at Bell Labs. C++ runs on a variety of platforms, such as
+                                Windows, Mac OS, and the various versions of UNIX.
+
+                                This reference will take you through simple and practical approach while learning C++
+                                Programming language.</p></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock %}

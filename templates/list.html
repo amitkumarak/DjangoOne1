@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% load crispy_forms_tags %}
+
+{% block styleblock %}
+    <style>
+        body {
+            background-color: #C0E5D9;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .profile-card {
+            background-color: #222222;
+            margin-bottom: 20px;
+
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            position: absolute;
+            top: -65px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 1;
+            max-width: 100px;
+            -webkit-transition: all 0.4s;
+            transition: all 0.4s;
+        }
+
+        .profile-info {
+            color: #BDBDBD;
+            padding: 25px;
+            position: relative;
+            margin-top: 15px;
+        }
+
+        .profile-info h2 {
+            color: #E8E8E8;
+            letter-spacing: 4px;
+            padding-bottom: 12px;
+        }
+
+        .profile-info span {
+            display: block;
+            font-size: 12px;
+            color: #4CB493;
+            letter-spacing: 2px;
+        }
+
+        .profile-info a {
+            color: #4CB493;
+        }
+
+        .profile-info i {
+            padding: 15px 35px 0px 35px;
+        }
+
+        .profile-card:hover .profile-pic {
+
+            transform: scale(1.1);
+        }
+
+        .profile-card:hover .profile-info hr {
+            opacity: 1;
+        }
+
+        /* Underline From Center */
+        .hvr-underline-from-center {
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hvr-underline-from-center:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: 52%;
+            right: 52%;
+            bottom: 0;
+            background: #FFFFFF;
+            border-radius: 50%;
+            height: 3px;
+            -webkit-transition-property: all;
+            transition-property: all;
+            -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+        }
+
+        .profile-card:hover .hvr-underline-from-center:before, .profile-card:focus .hvr-underline-from-center:before,
+        .profile-card:active .hvr-underline-from-center:before {
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #CECECE;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
+{% endblock styleblock %}
+
+{% block contentblock %}
+    <h1>{{ title }}</h1>
+
+    {% comment %}devlibrary list{% endcomment %}
+    <div class="container">
+        {% for library in libraries %}
+
+            <div class="col-md-4">
+                <div class="profile-card text-center">
+                    <a href="{% url 'devsdetail' id=library.id %}"><img class="" width="100%" src="{{ library.screenshot.url }}">
+                    </a>
+                    <div class="profile-info">
+                        <a href="{% url 'devsdetail' id=library.id %}">
+                            <h2 class="hvr-underline-from-center">{{ library.name }}<span>{{ library.category }}</span>
+                            </h2>
+                        </a>
+                        <div>{{ library.description }}</div>
+                        <a href="{{ library.websitelink }}"><i class="fa fa-globe fa-2x"></i></a>
+
+                        <a href="{{ library.githublink }}"><i class="fa fa-github fa-2x"></i></a>
+                    </div>
+
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+    {% comment %}paginations{% endcomment %}
+    <div class="row">
+        <ul class="pagination">
+            {% if libraries.has_previous %}
+                <li><a href="?page={{ libraries.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in  libraries.paginator.page_range %}
+                {% if  list.number == i %}
+                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                {% else %}
+                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if  libraries.has_next %}
+                <li><a href="?page={{ libraries.next_page_number }}">&raquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>&raquo;</span></li>
+            {% endif %}
+        </ul>
+    </div>
+
+{% endblock %}

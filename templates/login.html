@@ -1,0 +1,266 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block stylesheet %}
+    <style>
+        .bg_login {
+            background-image: url("{% static 'images/login2.jpg' %}");
+            margin-top: -20px;
+        }
+    </style>
+{% endblock %}
+
+{% block contentblock %}
+    <div class="ish-wrapper-all">
+        <!-- Header part section -->
+        <section class="ish-part_header">
+            <div class="ish-row ish-row-notfull">
+                <div class="ish-row_inner">
+
+                    <!-- Logo image / text -->
+                    <a class="ish-ph-logo ish-ph-logo_retina-yes" href="#">
+                            <span>
+							    <img src='{% static "upload/logo.png" %}' alt="Developer Library Helper"
+                                     title="Developer Library Helper" width="200px" ; height="500px" ;/>
+							</span>
+                    </a>
+
+                    <!-- Default HTML tagline -->
+
+                    <!-- Main navigation -->
+                    <nav class="ish-ph-main_nav">
+                        <ul id="mainnav" class="ish-ph-mn-main_nav ish-nt-regular">
+                            <li class="hide-text menu-item current_page_parent menu-item-has-children ish-nav-ic-item">
+                                <a href="/index"><i class="ish-icon-home ish-nav-ic"></i><span
+                                        class="ish-nav-ic-text"> Home</span></a>
+                                <ul class="sub-menu">
+
+                                    <li class="menu-item current_page_item"><a href=/list>Upload</a></li>
+                                    <li class="menu-item"><a href="home-creative.html">Download</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="menu-item"><a href="shortcodes.html">Shortcodes</a></li>
+                            <li class="menu-item menu-item-has-children"><a href="portfolios.html">Portfolios</a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item"><a href="3d-cube.html">Admin portfolio</a></li>
+                                    <li class="menu-item"><a href="3d-flip.html">User portfolio</a></li>
+
+                                </ul>
+                            </li>
+
+
+                            <li class="menu-item"><a href="/signup">Signup</a></li>
+                            <li class="menu-item menu-item-has-children menu-item-724"><a href="blog.html">Blog</a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item"><a href="/Library">Library</a></li>
+                                    <li class="menu-item"><a href="classic-blog.html">Classic example</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-has-children"><a href="shop.html">Download</a>
+
+                            </li>
+                            <li class="menu-item menu-item-has-children menu-item-552"><a href="/about">About</a>
+
+                            </li>
+
+                            <li class="ish-ph-mn-search">
+                                <a href="#search" class="ish-icon-search"></a>
+                            </li>
+                            <li class="ish-ph-lng-selector"><a href="#" class="ish-icon-globe sub"><span>Language</span></a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li><a href="#">Java:</a></li>
+                                    <li><a href="#">Asp.net</a></li>
+                                    <li><a href="#">Python</a></li>
+                                    <li><a href="#">C++</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- Responsive or sidenav navigation -->
+                        <ul class="ish-ph-mn-resp_nav ish-ph-mn-hidden">
+                            <!-- Resp menu button -->
+                            <li class="ish-ph-mn-resp_menu">
+                                <a href="#respnav" class="ish-icon-menu"></a>
+                            </li>
+
+                            <!-- Search button if enabled -->
+                            <li class="ish-ph-mn-search">
+                                <a href="#search" class="ish-icon-search"></a>
+                            </li>
+
+                            <li class="ish-ph-lng-selector"><a href="#" class="ish-icon-globe sub"><span>Language</span></a>
+                                <ul style="display: none;">
+                                    <li><a href="#">Java:</a></li>
+                                    <li><a href="#">Asp.net</a></li>
+                                    <li><a href="#">Python</a></li>
+                                    <li><a href="#">C++</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <!-- Header part section END -->
+         {% if form.errors %}
+
+        <p class="alert-danger alert">email or password does not match</p>
+    {% endif %}
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p>you are not authorized for visit</p>
+        {% else %}
+            <p>please login and continue</p>
+        {% endif %}
+    {% endif %}
+
+    <div class="container-fluid bg_login">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Sign in to continue</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="{% url 'login' %}" method="post">
+                            {% csrf_token %}
+                            <div class="input-group-lg">
+                                {{ form.username.label_tag }}<br>
+                                {{ form.username }}
+                            </div>
+                            <div class="input-group-lg">
+                                {{ form.password.label_tag }}<br>
+                                {{ form.password }}
+                            </div>
+                            <br>
+                            <div>
+                                <input type="submit" class="btn-success" value="login">
+                                <input type="hidden" value="{{ next }}" name="next">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+        <!-- Footer part section -->
+        <section class="ish-part_footer" id="ish-part_footer">
+
+            <div class="ish-row ish-row-notfull">
+                <div class="ish-row_inner">
+
+                    <div id="text-2" class="ish-grid6 widget-1 widget widget_text">
+                        <div class="textwidget">
+                            <p><img src="{% static 'upload/plogo.png' %}" alt=""></p>
+                            <p>Developer library helper is a Premium Creating and uploading libraries by <a href="#"
+                                                                                                            target="_blank">Max-languages</a>.
+                                It is built upon a powerful and extremely customizable framework.</p>
+                            <p>Developer contains a drag and drop page builder. It is <a href="#" target="_blank">Translation
+                                Ready</a> and 100% compatible with <a href="#" target="_blank">WPML</a> plugin. our web
+                                site - <a href="http://www.developerlib.com/" target="_blank">Developerlib</a>.</p>
+                            <p><a class="ish-sc-element ish-sc_button ish-small ish-color5 ish-text-color4 ish-left"
+                                  href="#" target="_blank">Download Now</a></p>
+                        </div>
+                    </div>
+                    <div id="ishyoboy-recent-portfolio-widget-2"
+                         class="icon-clock ish-grid3 widget-2 widget widget_ishyoboy-recent-portfolio-widget">
+                        <h4 class="widget-title">Our Works</h4>
+                        <ul class="recent-projects-widget">
+                            <li>
+                                <a href="#"><img width="200" height="200" src='{% static "upload/c1.jpeg" %}'
+                                                 class="attachment-theme-thumbnail size-theme-thumbnail wp-post-image"
+                                                 alt="record-player"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img width="200" height="200" src='{% static "upload/c2.jpg" %}'
+                                                 class="attachment-theme-thumbnail size-theme-thumbnail wp-post-image"
+                                                 alt="handkerchief"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img width="200" height="200" src='{% static "upload/j1.jpg" %}'
+                                                 class="attachment-theme-thumbnail size-theme-thumbnail wp-post-image"
+                                                 alt="03"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img width="200" height="200"
+                                                 src='{% static "upload/j2.jpg" %}'
+                                                 class="attachment-theme-thumbnail size-theme-thumbnail wp-post-image"
+                                                 alt="Plane_Wallpaper_Desktop"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img width="200" height="200" src='{% static "upload/as1.jpg" %}'
+                                                 class="attachment-theme-thumbnail size-theme-thumbnail wp-post-image"
+                                                 alt="uuuu-dr"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img width="200" height="200" src='{% static "upload/as2.jpg" %}'
+                                                 class="attachment-theme-thumbnail size-theme-thumbnail wp-post-image"
+                                                 alt="neuqen"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img width="200" height="200" src='{% static "upload/py1.jpg" %}'
+                                                 class="attachment-theme-thumbnail size-theme-thumbnail wp-post-image"
+                                                 alt="s-red"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img width="200" height="200" src='{% static "upload/py2.jpeg" %}'
+                                                 class="attachment-theme-thumbnail size-theme-thumbnail wp-post-image"
+                                                 alt="DeadRisingG"/></a>
+                            </li>
+                            <li>
+                                <a href="#"><img width="200" height="200" src='{% static "upload/py3.jpg" %}'
+                                                 class="attachment-theme-thumbnail size-theme-thumbnail wp-post-image"
+                                                 alt="Hug-the-Cactus"/></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="text-3" class="ish-grid3 widget-3 widget widget_text">
+                        <h4 class="widget-title">Bluehost compatible</h4>
+                        <div class="textwidget">
+                            <p>
+                                <a href="#" target="_blank"><img class="alignnone size-theme-half wp-image-1231"
+                                                                 alt="Bluehost Logo"
+                                                                 src='{% static "upload/bluehost.png" %}'
+                                                                 width="571" height="164"/></a>
+                            </p>
+                            <p><a href="#" target="_blank">Bluehost</a> has been a <a href="#" target="_blank">HTML </a>partner
+                                since 2005 and powers over one million Html sites.</p>
+                            <p>Tsheir goal is to provide outstanding hosting services and customer support for the best
+                                possible price. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- Footer part section END -->
+
+        <!-- Footer legals part section -->
+        <section class="ish-part_legals">
+
+            <div class="ish-row ish-row-notfull">
+                <div class="ish-row_inner">
+                    <p style="text-align: center;">PROUDLY POWERED BY <a href="#" title="Html">HTML</a> ~ CREATED WITH
+                        <a
+                                href="#" title="IshYoBoy.com">Python Language</a></p>
+                </div>
+            </div>
+
+        </section>
+        <!-- Footer legals part section END -->
+
+        <a href="#top" class="ish-back_to_top ish-smooth_scroll ish-icon-up-open"></a>
+
+    </div>
+
+
+{% endblock %}

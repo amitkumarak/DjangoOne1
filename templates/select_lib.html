@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block contentblock %}
+    <html>
+    <head><h2>select your library</h2></head>
+    <body>
+    <input type="checkbox" name="vehicle" value="Bike"> python<br>
+    <input type="checkbox" name="vehicle" value="Car" checked> Java<br>
+    <input type="checkbox" name="vehicle" value="Car" checked>Asp.net<br>
+    <input type="checkbox" name="vehicle" value="Car" checked> C++<br>
+    <input type="submit" value="Submit">
+
+    </body>
+
+    </html>
+{% endblock %}
