@@ -2,6 +2,7 @@ import json
 from base64 import b64decode
 
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.core import urlresolvers
 from django.core.mail import send_mail
 from django.utils.translation import ugettext_lazy as _
@@ -9,7 +10,7 @@ from django.http import JsonResponse, HttpResponseBadRequest
 from django.core.files.base import ContentFile
 from tellme.forms import FeedbackForm
 
-
+@login_required(login_url="login")
 def post_feedback(request):
     if request.method == 'POST' and request.is_ajax():
 

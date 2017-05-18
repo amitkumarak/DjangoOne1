@@ -65,8 +65,10 @@
                     <div class="contant-top-block">
                         <ul class="contact-top">
 
-                            <li><i class="icon-basic-smartphone"></i><a href="https://ievaphone.com/"> 7619850311</a></li>
-                            <li><i class="icon-basic-mail" style="top: 5px;"></i><a href="https://mail.google.com/mail/u/0/#inbox"> amitkumarmcmt@gmail.com</a></li>
+                            <li><i class="icon-basic-smartphone"></i><a href="https://ievaphone.com/"> 7619850311</a>
+                            </li>
+                            <li><i class="icon-basic-mail" style="top: 5px;"></i><a
+                                    href="https://mail.google.com/mail/u/0/#inbox"> amitkumarmcmt@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -78,8 +80,10 @@
 
                     </ul>
 
-
-
+                    <form method="get" action="{% url 'search' %}" class="navbar-form pull-right">
+                        <input type="search" id="searchBox" class="input-medium search-query" name="q" placeholder="Search">
+                        <input type="submit" class="btn" value="Search">
+                    </form>
 
                 </div>
             </div>
@@ -131,10 +135,10 @@
                                                 {% endif %}
 
 
-                                                <li><a href="#">Portfolio</a>
-                                                </li>
+
                                                 <li><a href='{% url "about" %}'>About</a>
                                                 </li>
+                                                <li><a href="{% url 'search' %}">Search</a></li>
 
 
                                             </ul>

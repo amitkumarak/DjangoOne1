@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 from accounts.views import (login_view, logout_view, register_view)
-
+from polls.views import search_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^login/', login_view, name="login"),
     url(r'^logout/', logout_view, name="logout"),
     url(r'^register/', register_view, name="register"),
+    url(r'^search/', search_view, name="search"),
 
 
 ]

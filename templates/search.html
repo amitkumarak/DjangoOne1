@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block contentblock %}
+    {% for library in results %}
+         <div class="col-md-4">
+                <div class="profile-card text-center">
+                    <a href="{% url 'devsdetail' id=library.id %}"><img class="" width="100%" src="{{ library.screenshot1.url }}">
+                    </a>
+                    <div class="profile-info">
+                        <a href="{% url 'devsdetail' id=library.id %}">
+                            <h2 class="hvr-underline-from-center">{{ library.name }}<span>{{ library.category }}</span>
+                            </h2>
+                        </a>
+                        <div>{{ library.description }}</div>
+                        <a href="{{ library.websitelink }}"><i class="fa fa-globe fa-2x"></i></a>
+
+                        <a href="{{ library.githublink }}"><i class="fa fa-github fa-2x"></i></a>
+                    </div>
+
+                </div>
+            </div>
+
+    {% endfor %}
+{% endblock %}
